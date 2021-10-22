@@ -45,12 +45,14 @@ public class ProductoController {
 		return new ResponseEntity<List<Producto>>(productos, HttpStatus.OK);
 	}
 
+	@CrossOrigin(origins="*")
 	@PostMapping(value = "/productos")
 	public ResponseEntity<Producto> create(@RequestBody Producto producto) {
 		Producto nuevoProducto = productoService.create(producto);
 		return new ResponseEntity<Producto>(nuevoProducto, HttpStatus.CREATED);
 	}
 
+	@CrossOrigin(origins="*")
 	@PutMapping(value = "/productos")
 	public ResponseEntity<Producto> update(@RequestBody Producto producto) {
 		Producto existeProducto = productoService.update(producto);
